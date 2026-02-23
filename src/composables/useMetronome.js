@@ -48,7 +48,7 @@ export function useMetronome() {
     }
   }
 
-  function playOscillator(time, freq, type, decay) {
+  function playOscillator(time, freq, type, decay, volume = 1.0) {
     const osc = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
 
@@ -58,7 +58,7 @@ export function useMetronome() {
     osc.frequency.value = freq;
     osc.type = type;
 
-    gainNode.gain.value = 1.0;
+    gainNode.gain.setValueAtTime(volume, time);
     gainNode.gain.exponentialRampToValueAtTime(0.001, time + decay);
 
     osc.start(time);
@@ -93,9 +93,9 @@ export function useMetronome() {
 
     // Frequencies / Synthesis based on ClickSound
     if (clickSound.value === 'woodblock') {
-         // Woodblock: high sine/triangle
+         // Woodblock: high sine/triangle (Now louder and sharper)
         const freq = isMeasureDownbeat ? 1200 : (isQuarterDownbeat ? 800 : 600);
-        playOscillator(time, freq, 'sine', 0.1);
+        playOscillator(time, freq, 'triangle', 0.1, 1.5);
     
     } else if (clickSound.value === 'digital') {
         // Digital: Square beep

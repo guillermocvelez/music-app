@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useTheme } from '../../composables/useTheme';
+
+const { theme, toggleTheme } = useTheme();
 
 defineProps({
   currentView: {
@@ -15,7 +18,30 @@ defineEmits(['update:currentView']);
   <div class="main-layout">
     <header class="top-bar">
       <div class="logo">
-        <span class="icon">≈</span> SonicPulse
+        <svg width="150" height="42" viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg">
+
+
+          <!-- Guitar Pick -->
+          <path d="M85 20 
+                   C130 20 150 75 85 130 
+                   C20 75 40 20 85 20 Z" 
+                fill="#ff6b00"/>
+
+          <!-- Text -->
+          <text x="175" y="70" 
+                class="text-main" 
+                font-size="40" 
+                fill="currentColor">
+            theMusic
+          </text>
+
+          <text x="175" y="110" 
+                class="text-main" 
+                font-size="40" 
+                fill="#ff6b00">
+            Tools
+          </text>
+        </svg>
       </div>
       <nav class="main-nav">
         <a 
@@ -38,6 +64,9 @@ defineEmits(['update:currentView']);
         <a href="#" class="nav-item">Settings</a>
       </nav>
       <div class="user-profile">
+        <button class="theme-toggle" @click="toggleTheme" title="Toggle Theme">
+          {{ theme === 'dark' ? '☀️' : '🌙' }}
+        </button>
         <div class="notification-icon">🔔</div>
         <div class="user-info">
           <span class="role">Pro Account</span>
@@ -143,7 +172,7 @@ defineEmits(['update:currentView']);
   align-items: center;
   justify-content: center;
   position: relative;
-  background: radial-gradient(circle at center, rgba(45,212,191,0.03) 0%, rgba(11,13,17,0) 70%);
+  background: radial-gradient(circle at center, rgba(255, 107, 0, 0.05) 0%, rgba(17, 17, 17, 0) 70%);
 }
 
 .right-panel {
@@ -160,5 +189,26 @@ defineEmits(['update:currentView']);
   padding: 0 var(--spacing-xl);
   display: flex;
   align-items: center;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: var(--spacing-xs);
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  margin-right: var(--spacing-sm);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-panel-border);
+}
+
+.text-main { 
+  font-family: 'Poppins', 'Segoe UI', sans-serif; 
+  font-weight: 700; 
+  letter-spacing: -0.5px;
 }
 </style>
