@@ -126,7 +126,7 @@ const reveal = () => {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-overlay-soft);
   padding: 2rem;
   border-radius: 12px;
   border: 1px solid var(--color-panel-border);
@@ -150,7 +150,7 @@ label {
 }
 
 select, input[type="range"] {
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--color-overlay-soft);
   border: 1px solid var(--color-panel-border);
   color: var(--color-text-primary);
   padding: 0.5rem;
@@ -159,7 +159,7 @@ select, input[type="range"] {
 
 .generate-btn {
   background-color: var(--color-accent);
-  color: #000;
+  color: var(--color-on-accent);
   border: none;
   padding: 1rem;
   border-radius: 8px;
@@ -176,7 +176,7 @@ select, input[type="range"] {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-overlay-soft);
   padding: 2rem;
   border-radius: 12px;
   border: 1px solid var(--color-panel-border);
@@ -192,13 +192,13 @@ select, input[type="range"] {
     border-radius: 6px;
     border: 1px solid var(--color-panel-border);
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-overlay-strong);
     color: var(--color-text-primary);
     transition: background 0.2s;
 }
 
 .action-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-surface-2);
 }
 
 .play-btn {
@@ -207,11 +207,11 @@ select, input[type="range"] {
 }
 
 .reveal-btn {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-overlay-strong);
 }
 
 pre {
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--color-overlay-strong);
   padding: 1rem;
   border-radius: 6px;
   font-size: 0.8rem;
@@ -228,7 +228,7 @@ pre {
 .detail-item {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-panel-border);
   padding-bottom: 0.5rem;
 }
 

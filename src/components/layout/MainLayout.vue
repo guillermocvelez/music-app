@@ -59,20 +59,23 @@ defineEmits(['update:currentView']);
           @click.prevent="$emit('update:currentView', 'eartraining')"
         >
           Ear Training
-        </a>
-        <a href="#" class="nav-item">Library</a>
-        <a href="#" class="nav-item">Settings</a>
+        </a> 
       </nav>
       <div class="user-profile">
         <button class="theme-toggle" @click="toggleTheme" title="Toggle Theme">
           {{ theme === 'dark' ? '☀️' : '🌙' }}
         </button>
-        <div class="notification-icon">🔔</div>
-        <div class="user-info">
-          <span class="role">Pro Account</span>
-          <span class="plan">PREMIUM PLAN</span>
+        <button class="google-login-btn" type="button" title="Próximamente">
+          <span class="google-mark">G</span>
+          Iniciar sesión con Google
+        </button>
+        <div class="avatar-card">
+          <div class="avatar" aria-hidden="true">GT</div>
+          <div class="account-meta">
+            <span class="account-name">Invitado</span>
+            <span class="account-status">Sin sesión</span>
+          </div>
         </div>
-        <div class="avatar">👤</div>
       </div>
     </header>
 
@@ -112,6 +115,7 @@ defineEmits(['update:currentView']);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   height: 64px;
   padding: 0 var(--spacing-xl);
   border-bottom: 1px solid var(--color-panel-border);
@@ -134,6 +138,10 @@ defineEmits(['update:currentView']);
 .main-nav {
   display: flex;
   gap: var(--spacing-xl);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
 }
 
 .nav-item {
@@ -152,6 +160,75 @@ defineEmits(['update:currentView']);
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
+}
+
+.google-login-btn {
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--color-panel-border);
+  background: var(--color-panel);
+  color: var(--color-text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 0.8rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.google-login-btn:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.google-mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc05, #34a853);
+  color: #fff;
+}
+
+.avatar-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-accent), #ff9248);
+  color: #111;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 107, 0, 0.35);
+}
+
+.account-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.account-name {
+  font-size: 0.78rem;
+  color: var(--color-text-primary);
+}
+
+.account-status {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
 }
 
 .content-area {
@@ -207,7 +284,7 @@ defineEmits(['update:currentView']);
 }
 
 .text-main { 
-  font-family: 'Poppins', 'Segoe UI', sans-serif; 
+  font-family: var(--font-family-base);
   font-weight: 700; 
   letter-spacing: -0.5px;
 }

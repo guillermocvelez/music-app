@@ -55,6 +55,7 @@ const isActive = (p) => {
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
     font-weight: 600;
+    font-family: var(--font-family-display);
 }
 
 .presets-list {
@@ -74,7 +75,7 @@ const isActive = (p) => {
 }
 
 .preset-item:hover {
-    background: rgba(255,255,255,0.03);
+    background: var(--color-overlay-soft);
 }
 
 .preset-item.active {
@@ -96,7 +97,7 @@ const isActive = (p) => {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #2a2e38;
+    background: var(--color-surface-3);
 }
 
 .active .icon-circle {
@@ -106,8 +107,8 @@ const isActive = (p) => {
 
 .preset-name {
     flex: 1;
-    font-weight: 600;
-    color: #fff;
+    font-weight: 400;
+    color: var(--color-text-primary);
     font-size: 0.95rem;
 }
 

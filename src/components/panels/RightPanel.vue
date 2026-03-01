@@ -86,6 +86,7 @@ const isSelected = (s) => s.num === timeSignature.value.numerator && s.den === t
     letter-spacing: 1px;
     margin-bottom: 1rem;
     font-weight: 600;
+    font-family: var(--font-family-display);
 }
 
 .grid-2 {
@@ -97,7 +98,7 @@ const isSelected = (s) => s.num === timeSignature.value.numerator && s.den === t
 .sig-btn {
     background: transparent;
     border: 1px solid var(--color-panel-border);
-    color: #fff;
+    color: var(--color-text-primary);
     padding: 0.8rem;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -118,7 +119,7 @@ const isSelected = (s) => s.num === timeSignature.value.numerator && s.den === t
 
 /* Subdivisions */
 .list-options {
-    background: #111317; /* Slight darker */
+    background: var(--color-surface-1);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -133,7 +134,7 @@ const isSelected = (s) => s.num === timeSignature.value.numerator && s.den === t
     transition: background 0.2s;
 }
 .option-row:hover {
-    background: #1a1d24;
+    background: var(--color-surface-2);
 }
 .option-row:last-child {
     border-bottom: none;
@@ -152,7 +153,7 @@ const isSelected = (s) => s.num === timeSignature.value.numerator && s.den === t
 }
 .check.active::after {
     content: '✔'; /* Simplified check */
-    color: #000;
+    color: var(--color-on-accent);
     font-size: 0.7rem;
     position: absolute;
     top: 50%;
@@ -162,7 +163,7 @@ const isSelected = (s) => s.num === timeSignature.value.numerator && s.den === t
 
 /* Sounds */
 .sound-selector {
-    background: #1a1e26;
+    background: var(--color-surface-1);
     padding: 0.5rem;
     border-radius: 20px;
     display: flex;
@@ -182,6 +183,6 @@ const isSelected = (s) => s.num === timeSignature.value.numerator && s.den === t
 }
 .sound-btn.active {
     background: var(--color-accent);
-    color: #000;
+    color: var(--color-on-accent);
 }
 </style>
