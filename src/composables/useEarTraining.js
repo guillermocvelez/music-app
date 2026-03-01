@@ -92,6 +92,7 @@ export function useEarTraining() {
     const note2 = getNoteByInterval(root, interval.semitones);
 
     return {
+      tipo: 'intervalo',
       notas: [root, note2],
       intervalo: interval.name,
       grado: `${interval.semitones} semitonos`, // Or actual scale degree if we had scale context
@@ -114,6 +115,7 @@ export function useEarTraining() {
     const notes = chordData.intervals.map(semitones => getNoteByInterval(root, semitones));
 
     return {
+      tipo: 'acorde',
       notas: notes,
       intervalo: 'N/A', // Chords are not single intervals
       grado: chordData.name,
@@ -129,6 +131,7 @@ export function useEarTraining() {
     // In a real app we'd map these to notes based on the key
     
     return {
+      tipo: 'progresión',
       notas: [root], // Just root for now
       intervalo: 'Progresión',
       grado: progression.join(' - '),
